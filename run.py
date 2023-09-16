@@ -24,3 +24,18 @@ def place_ships(board, num_ships):
                 board[y][x] = 'B'
                 break
 
+# Users guess for the location of a battleship.
+# Check if the guess is within the grid of the board. 
+
+def users_guess(board):
+    while True:
+        try:
+            guess = input("Enter guess(row col): ")
+            row, col = map(int, guess.split())
+            if 0 <= row < len(board) and 0 <= col < len(board):
+                return row, col
+            else:
+                print("Where are you off to? Try again.")
+            except ValueError:
+                print("Please enter numbers for the row and column.")
+
