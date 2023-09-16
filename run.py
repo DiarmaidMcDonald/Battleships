@@ -18,9 +18,9 @@ def print_board(board):
 def place_ships(board, num_ships):
     for i in range(num_ships):
         while True:
-            x = random.randint(0, len(board) -1)
-            y = random.randint(0, len(board) -1)
-            if board[y][x] = '':
+            x = random.randint(0, len(board) - 1)
+            y = random.randint(0, len(board) - 1)
+            if board[y][x] == '':
                 board[y][x] = 'B'
                 break
 
@@ -36,6 +36,5 @@ def users_guess(board):
                 return row, col
             else:
                 print("Where are you off to? Try again.")
-            except ValueError:
-                print("Please enter numbers for the row and column.")
-
+        except ValueError:
+            print("Please enter numbers for the row and column.")
