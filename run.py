@@ -1,5 +1,5 @@
 """
-Game Objective:
+Battleships Game Objective:
 
 You try and hit the battleships by calling out the coordinates of one of the squares on the board.  
 Neither you nor the computer can see the other's board so you must try to guess where they are.
