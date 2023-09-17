@@ -1,9 +1,11 @@
 """
 Battleships Game Objective:
 
-You try and hit the battleships by calling out the coordinates of one of the squares on the board.  
-Neither you nor the computer can see the other's board so you must try to guess where they are.
-You have 25 shots to sink all of your oppents battleships.
+You try and hit the battleships by calling out the
+coordinates of one of the squares on the board.  
+Neither you nor the computer can see the other's board
+so you must try to guess where they are.
+You have 10 shots to sink all of your oppents battleships.
 
 'X' represents a hit on players board.
 'B' represents a battleship on computers board.
@@ -20,7 +22,7 @@ def create_board(size):
 def print_board(board):
     for row in board:
         print(''.join(row))
-    print('Let the Game Begin.\n')
+    print('\nLet the Game Begin.\n')
 
 # Put the computer's battleship randomly on the board for each game.
 # 'B' represents a battleship.
@@ -52,24 +54,23 @@ def main():
     computer_score = 0
 
     while True:
-        board_size = 10
-        num_ships = 5
+        board_size = 5
+        num_ships = 4
         player_board = create_board(board_size)
         computer_board = create_board(board_size)
-        print("Placing computers battleships")
-        place_ships(computer_board, num_ships) 
+        print("Placing computer's battleships")
+        place_ships(computer_board, num_ships)
 
         print("Welcome to Battleships")
-        print("Take a guess on where the computers Battleships are")
-        print("You have 25 rockets, make them count!!")
+        print("Take a guess on where the computer's Battleships are")
+        print("You have 10 rockets, make them count!!")
 
-# User has 25 attempts to sink battleships
-        
-        attempts = 25
+        # User has 10 attempts to sink battleships
+        attempts = 10
         while attempts > 0:
-            print(f"Attempts left {attempts}")
+            print(f"Attempts left: {attempts}")
             print_board(player_board)
-            row, col = user_guess(player_board)
+            row, col = users_guess(player_board)
 
             if computer_board[row][col] == 'B':
                 print("Bingo, hit one!")
@@ -80,25 +81,20 @@ def main():
 
             attempts -= 1
 
-# Check if all battleships are sunk.
-            
+            # Check if all battleships are sunk.
             if all(cell == 'X' for row in player_board for cell in row):
                 print("Bullseye, mission complete! Good job solider")
                 break
-        
+
         print("Game Over")
         print(f"Your Score: {user_score}")
         print(f"Computer Score: {computer_score}")
-        print("Computers Battleships:")
+        print("Computer's Battleships:")
         print_board(computer_board)
 
         play_again = input("Fancy another game? Yes/No:\n ")
-        if play_again.lower != 'Yes':
+        if play_again.lower() != 'yes':
             break
 
-main()    
-
-
-
-
-
+if __name__ == "__main__":
+    main()
