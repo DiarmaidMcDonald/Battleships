@@ -1,3 +1,15 @@
+"""
+Game Objective:
+
+You try and hit the battleships by calling out the coordinates of one of the squares on the board.  
+Neither you nor the computer can see the other's board so you must try to guess where they are.
+You have 25 shots to sink all of your oppents battleships.
+
+'X' represents a hit on players board.
+'B' represents a battleship on computers board.
+
+"""
+
 import random
 
 # Creating an empty board for the game board.
@@ -34,3 +46,59 @@ def users_guess(board):
                 print("Where are you off to? Try again.")
         except ValueError:
             print("Please enter numbers for the row and column.")
+
+def main():
+    user_score = 0
+    computer_score = 0
+
+    while True:
+        board_size = 10
+        num_ships = 5
+        player_board = create_board(board_size)
+        computer_board = create_board(board_size)
+        print("Placing computers battleships")
+        place_ships(computer_board, num_ships) 
+
+        print("Welcome to Battleships")
+        print("Take a guess on where the computers Battleships are")
+        print("You have 25 rockets, make them count!!")
+
+# User has 25 attempts to sink battleships
+        
+        attempts = 25
+        while attempts > 0:
+            print(f"Attempts left {attempts}")
+            print_board(player_board)
+            row, col = user_guess(player_board)
+
+            if computer_board[row][col] = 'B':
+                print("Bingo, hit one!")
+                player_board[row][col] = 'X'
+                user_score += 1
+            else:
+                print("Dammit! I missed...")
+
+            attempts -= 1
+
+# Check if all battleships are sunk.
+            
+            if all(cell == 'X' for row in player_board for cell in row):
+                print("Bullseye, mission complete! Good job solider")
+                break
+        
+        print("Game Over")
+        print(f"Your Score: {user_score}")
+        print(f"Computer Score: {computer_score}")
+        print("Computers Battleships:")
+        print_board(computer_board)
+
+        play_again = input("Fancy another game? Yes/No:\n ")
+        if play_again.lower != 'Yes':
+            break
+
+main()    
+
+
+
+
+
