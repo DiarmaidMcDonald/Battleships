@@ -71,7 +71,7 @@ def main():
             print_board(player_board)
             row, col = user_guess(player_board)
 
-            if computer_board[row][col] = 'B':
+            if computer_board[row][col] == 'B':
                 print("Bingo, hit one!")
                 player_board[row][col] = 'X'
                 user_score += 1
