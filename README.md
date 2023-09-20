@@ -12,7 +12,7 @@ Please follow link below to access the Battleships game -
 
 As shown below ami.responsive was used -
 
-![am-i-responsive](images/ami.responsive.png)
+![am-i-responsive](/images/ami.responsive.png)
 
 ## Features
 
@@ -20,23 +20,23 @@ A 5x5 grid board will be shown and randomly place ships on it.
 The user can not see where the computer has put its ships.
 It will also show you how many attempts you have, which takes away one attempt every go you take.
 
-![beginning-of-game](images/begin.png)
+![beginning-of-game](/images/begin.png)
 
 It will show that when a ship has been hit, 'X' will appear.
 
-![bullseye](images/hit.png)
+![bullseye](/images/hit.png)
 
 When the user misses, 'O' will appear.
 
-![miss](images/miss.png)
+![miss](/images/miss.png)
 
 Should you pick a space off the board the message 'Where are you off to? Try again' will appear.
 
-![try-again](images/off-board.png)
+![try-again](/images/off-board.png)
 
 At the end of the game once, you will be asked if you would like to play a new game.
 
-![new-game](images/rematch.png)
+![new-game](/images/rematch.png)
 
 ## Validator Testing
 
@@ -44,7 +44,7 @@ PEP8 was used to validate the code.
 
 Four errors were shown from PEP8 -
 
-![validator](images/validator.png)
+![validator](/images/validator.png)
 
 ## Deployment
 
