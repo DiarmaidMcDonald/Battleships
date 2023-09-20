@@ -2,26 +2,34 @@
 Battleships Game Objective:
 
 You try and hit the battleships by calling out the
-coordinates of one of the squares on the board.  
+coordinates of one of the squares on the board.
 Neither you nor the computer can see the other's board
 so you must try to guess where they are.
 You have 10 shots to sink all of your oppents battleships.
-
-'X' represents a hit on players board.
-'B' represents a battleship on computers board.
-
 """
 
 import random
 
 # Creating an empty board for the game board.
 def create_board(size):
-    return [['' for _ in range(size)] for _ in range(size)]
+    return [['.' for _ in range(size)] for _ in range(size)]
 
-# Print the game board.
 def print_board(board):
-    for row in board:
-        print(''.join(row))
+    size = len(board)
+
+    # Print column numbers
+    print("  " + " ".join(str(i) for i in range(size)))
+
+    for i in range(size):
+        # Print row number
+        print(i, end=" ")
+
+        # Print board content
+        for j in range(size):
+            print(board[i][j], end=" ")
+
+        print()  # Move to the next row
+
     print('\nLet the Game Begin.\n')
 
 # Put the computer's battleship randomly on the board for each game.
@@ -31,7 +39,7 @@ def place_ships(board, num_ships):
         while True:
             x = random.randint(0, len(board) - 1)
             y = random.randint(0, len(board) - 1)
-            if board[y][x] == '':
+            if board[y][x] == '.':
                 board[y][x] = 'B'
                 break
 
@@ -58,8 +66,12 @@ def main():
         num_ships = 4
         player_board = create_board(board_size)
         computer_board = create_board(board_size)
+
         print("Placing computer's battleships")
         place_ships(computer_board, num_ships)
+
+        print("Your Board:")
+        print_board(player_board)
 
         print("Welcome to Battleships")
         print("Take a guess on where the computer's Battleships are")
@@ -74,17 +86,18 @@ def main():
 
             if computer_board[row][col] == 'B':
                 print("Bingo, hit one!")
-                player_board[row][col] = 'X'
+                player_board[row][col] = 'X'  # Mark the hit with 'X'
                 user_score += 1
             else:
                 print("Dammit! I missed...")
+                player_board[row][col] = 'O'  # Mark the miss with 'O'
 
             attempts -= 1
 
             # Check if all battleships are sunk.
-            if all(cell == 'X' for row in player_board for cell in row):
-                print("Bullseye, mission complete! Good job solider")
-                break
+            if all(cell == 'X' or cell == '.' for row in player_board for cell in row):
+                print("Bullseye, mission complete! Good job soldier")
+                break  # Break the inner loop when all ships are sunk
 
         print("Game Over")
         print(f"Your Score: {user_score}")
