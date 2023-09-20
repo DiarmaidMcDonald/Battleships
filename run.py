@@ -7,7 +7,6 @@ Neither you nor the computer can see the other's board
 so you must try to guess where they are.
 You have 10 shots to sink all of your oppents battleships.
 """
-
 import random
 
 # Creating an empty board for the game board.
@@ -32,6 +31,7 @@ def print_board(board):
 
     print('\nLet the Game Begin.\n')
 
+
 # Put the computer's battleship randomly on the board for each game.
 # 'B' represents a battleship.
 def place_ships(board, num_ships):
@@ -42,6 +42,7 @@ def place_ships(board, num_ships):
             if board[y][x] == '.':
                 board[y][x] = 'B'
                 break
+
 
 # Users guess for the location of a battleship.
 # Check if the guess is within the grid of the board.
@@ -56,6 +57,7 @@ def users_guess(board):
                 print("Where are you off to? Try again.")
         except ValueError:
             print("Please enter numbers for the row and column.")
+
 
 def main():
     user_score = 0
