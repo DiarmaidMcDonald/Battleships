@@ -1,32 +1,60 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Battleships
 
-Welcome,
+## How to play.
+You try and hit the battleships by calling out the coordinates of one of the squares on the board.
+Neither you nor the computer can see the other's board so you must try to guess where they are.
+You have 10 shots to sink all of your oppents battleships.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
+Please follow link below to access the Battleships game -
+[Battleships Game](https://battleships62-71e1eab5883b.herokuapp.com/)
 
-## Reminders
+## Am I Responsive
 
-- Your code must be placed in the `run.py` file
-- Your dependencies must be placed in the `requirements.txt` file
-- Do not edit any of the other files or your code may not deploy properly
+As shown below ami.responsive was used -
 
-## Creating the Heroku app
+![am-i-responsive](images/ami.responsive.png)
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+## Features
 
-1. `heroku/python`
-2. `heroku/nodejs`
+A 5x5 grid board will be shown and randomly place ships on it.
+The user can not see where the computer has put its ships.
+It will also show you how many attempts you have, which takes away one attempt every go you take.
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+![beginning-of-game](images/begin.png)
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+It will show that when a ship has been hit, 'X' will appear.
 
-Connect your GitHub repository and deploy as normal.
+![bullseye](images/hit.png)
 
-## Constraints
+When the user misses, 'O' will appear.
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+![miss](images/miss.png)
 
----
+Should you pick a space off the board the message 'Where are you off to? Try again' will appear.
 
-Happy coding!
+![try-again](images/off-board.png)
+
+At the end of the game once, you will be asked if you would like to play a new game.
+
+![new-game](images/rematch.png)
+
+## Validator Testing
+
+PEP8 was used to validate the code.
+
+Four errors were shown from PEP8 -
+
+![validator](images/validator.png)
+
+## Deployment
+
+This project was deployed using CodeInstitutes mock terminal for Heroku.
+
+Steps for deployment included:
+
+1) Clone the repository
+2) Create a new Heroku app
+3) Set the building packs to python and nodejs in the particular order
+4) Link the Heroku app to the repository
+5) Deploy
+
